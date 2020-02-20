@@ -57,6 +57,14 @@ target_link_libraries(create_phat_filtration ${MPI_LIBRARIES})
 add_executable (full_to_sparse_distance_matrix src/full_to_sparse_distance_matrix.cpp)
 target_link_libraries(full_to_sparse_distance_matrix ${MPI_LIBRARIES})
 
+# Set up installation targets for the main binary of this package. The
+# other binaries could be added as well, but their naming scheme might
+# clutter up `bin`.
+install( TARGETS dipha
+  RUNTIME
+  DESTINATION bin
+)
+
 source_group(Header\ Files FILES ${dipha_general_includes})
 source_group(Header\ Files\\inputs FILES ${dipha_input_includes})
 source_group(Header\ Files\\outputs FILES ${dipha_output_includes})
